@@ -41,20 +41,21 @@ with [Git](https://git-scm.com/book) and [Mojo](https://docs.modular.com/mojo/ma
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
-3. Test with `mojo test`
-4. Run with `mojo src/main.mojo`
-5. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
-6. Execute with `target/tephrite`
-7. Package with `mojo package -o target src/tephrite`
-8. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
-9. Sync `VERSION` in [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo) and [`test_tephrite.mojo`](src/test_tephrite.mojo)
-10. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
-11. Stage with `git add`
-12. Commit with `git commit -m "message"` where `message` describes the changes
-13. Push branch with `git push`
-14. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
-15. Push tag with `git push origin tag` where `tag` is the version
-16. Clean with `rm -r target`
+3. Start the Magic shell with `magic shell`
+4. Test with `mojo test`
+5. Run with `mojo src/main.mojo`
+6. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
+7. Execute with `target/tephrite`
+8. Package with `mojo package -o target src/tephrite`
+9. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
+10. Sync `VERSION` in [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo) and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+11. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
+12. Stage with `git add`
+13. Commit with `git commit -m "message"` where `message` describes the changes
+14. Push branch with `git push`
+15. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
+16. Push tag with `git push origin tag` where `tag` is the version
+17. Clean with `rm -r target`
 
 # 📋 Backlog
 
