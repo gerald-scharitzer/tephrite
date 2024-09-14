@@ -11,6 +11,8 @@ Build Mojo packages such that they can be published, searched, added, and instal
 
 Just `tephrite` without arguments prints the usage.
 
+Search, add, and install packages with [`magic` commands](https://docs.modular.com/magic/commands).
+
 ## Setup
 
 Install Magic.
