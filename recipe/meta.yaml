@@ -1,0 +1,10 @@
+package:
+  name: tephrite
+  version: "0.1.0"
+
+source:
+  path: "../target"
+
+build:
+  string: dev0
+  noarch: generic
