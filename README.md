@@ -39,7 +39,9 @@ What is the module search order?
 
 # 🪛 Develop
 
-with [Git](https://git-scm.com/book) and [Mojo](https://docs.modular.com/mojo/manual/).
+with [Git](https://git-scm.com/book),
+[Mojo](https://docs.modular.com/mojo/manual/), and
+[conda-build](https://docs.conda.io/projects/conda-build/en/stable/).
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
@@ -49,7 +51,7 @@ with [Git](https://git-scm.com/book) and [Mojo](https://docs.modular.com/mojo/ma
 6. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
 7. Execute with `target/tephrite`
 8. Package with `mojo package -o target src/tephrite`
-9. Build Conda package with `conda-build --no-include-recipe recipe`
+9. Build Conda package with `conda-build recipe`
 10. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
 11. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
 12. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
@@ -64,11 +66,13 @@ with [Git](https://git-scm.com/book) and [Mojo](https://docs.modular.com/mojo/ma
 
 Publish Mojo packages as Conda packages.
 
+Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).
+
 `mojo doc` all source files, when it can generate something more human-readable than JSON.
 
 Process packages independent from their containing file system structure.
 
-- dev scripts
+- magic tasks
 - unit tests
 - integration tests
 - doc tests

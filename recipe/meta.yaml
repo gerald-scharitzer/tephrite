@@ -8,3 +8,6 @@ source:
 build:
   string: dev0
   noarch: generic
+  include_recipe: False
+
+# TODO about license
