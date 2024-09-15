@@ -50,7 +50,7 @@ with [Git](https://git-scm.com/book) and [Mojo](https://docs.modular.com/mojo/ma
 7. Execute with `target/tephrite`
 8. Package with `mojo package -o target src/tephrite`
 9. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
-10. Sync `VERSION` in [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo) and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+10. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
 11. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
 12. Stage with `git add`
 13. Commit with `git commit -m "message"` where `message` describes the changes

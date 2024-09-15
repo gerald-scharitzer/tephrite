@@ -10,3 +10,4 @@ version = "0.1.0-dev0"
 
 [dependencies]
 max = ">=24.4.0,<25"
+conda-build = ">=24.7.1,<25"
