@@ -64,6 +64,10 @@ with [Git](https://git-scm.com/book),
 
 # 📋 Backlog
 
+Build Conda packages with [`conda-build`](https://docs.conda.io/projects/conda-build) via CLI and the Python [`subprocess`](https://docs.python.org/3/library/subprocess.html) module.
+
+Define Conda build as Magic task.
+
 Publish Mojo packages as Conda packages.
 
 Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).

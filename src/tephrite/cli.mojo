@@ -4,6 +4,9 @@ alias USAGE = """\
 Usage: tephrite [arguments]
 Arguments:
 
+	b | build
+		Builds a Conda package.
+	
 	v | version
 		Prints the version of this package.
 """
@@ -26,7 +29,11 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 		if arg_state == ARG_STATE_COMMAND: # do nothing with the command name
 			arg_state = ARG_STATE_NEW
 		elif arg_state == ARG_STATE_NEW: # new argument sequence
-			if arg == "v" or arg == "version":
+			if arg == "b" or arg == "build":
+				var builder = Builder()
+				builder.build()
+				arg_state = ARG_STATE_NEW
+			elif arg == "v" or arg == "version":
 				print(VERSION)
 				arg_state = ARG_STATE_NEW
 			else:
