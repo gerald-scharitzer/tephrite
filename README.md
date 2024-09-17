@@ -9,6 +9,8 @@ Build Mojo packages such that they can be published, searched, added, and instal
 
 # 🔌 Use
 
+`tephrite b` builds a Conda package from the Mojo project in the current directory.
+
 Just `tephrite` without arguments prints the usage.
 
 Search, add, and install packages with [`magic` commands](https://docs.modular.com/magic/commands).
@@ -45,22 +47,23 @@ with [Git](https://git-scm.com/book),
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
-3. Start the Magic shell with `magic shell`
-4. Test with `mojo test`
-5. Run with `mojo src/main.mojo`
-6. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
-7. Execute with `target/tephrite`
-8. Package with `mojo package -o target src/tephrite`
-9. Build Conda package with `conda-build recipe`
-10. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
-11. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
-12. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
-13. Stage with `git add`
-14. Commit with `git commit -m "message"` where `message` describes the changes
-15. Push branch with `git push`
-16. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
-17. Push tag with `git push origin tag` where `tag` is the version
-18. Clean with `rm -r target`
+3. Update with `magic update`
+4. Start the Magic shell with `magic shell`
+5. Test with `mojo test`
+6. Run with `mojo src/main.mojo`
+7. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
+8. Execute with `target/tephrite`
+9. Package with `mojo package -o target src/tephrite`
+10. Build Conda package with `conda-build recipe`
+11. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
+12. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+13. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
+14. Stage with `git add`
+15. Commit with `git commit -m "message"` where `message` describes the changes
+16. Push branch with `git push`
+17. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
+18. Push tag with `git push origin tag` where `tag` is the version
+19. Clean with `rm -r target`
 
 # 📋 Backlog
 
