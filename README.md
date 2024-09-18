@@ -9,7 +9,7 @@ Build Mojo packages such that they can be published, searched, added, and instal
 
 # 🔌 Use
 
-`tephrite b` builds a Conda package from the Mojo project in the current directory.
+`tephrite b <dir>` builds a Conda package from the recipe in directory `<dir>`.
 
 Just `tephrite` without arguments prints the usage.
 
