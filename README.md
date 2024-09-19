@@ -9,7 +9,7 @@ Build Mojo packages such that they can be published, searched, added, and instal
 
 # 🔌 Use
 
-`tephrite b <dir>` builds a Conda package from the recipe in directory `<dir>`.
+`tephrite build <dir>` builds a Conda package from the recipe in directory `<dir>`.
 
 Just `tephrite` without arguments prints the usage.
 
@@ -54,16 +54,17 @@ with [Git](https://git-scm.com/book),
 7. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
 8. Execute with `target/tephrite`
 9. Package with `mojo package -o target src/tephrite`
-10. Build Conda package with `conda-build recipe`
-11. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
-12. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
-13. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
-14. Stage with `git add`
-15. Commit with `git commit -m "message"` where `message` describes the changes
-16. Push branch with `git push`
-17. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
-18. Push tag with `git push origin tag` where `tag` is the version
-19. Clean with `rm -r target`
+10. Exit the Magic shell with `exit`
+11. Build Conda package with `magic run build`
+12. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
+13. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+14. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
+15. Stage with `git add`
+16. Commit with `git commit -m "message"` where `message` describes the changes
+17. Push branch with `git push`
+18. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
+19. Push tag with `git push origin tag` where `tag` is the version
+20. Clean with `rm -r target`
 
 # 📋 Backlog
 
