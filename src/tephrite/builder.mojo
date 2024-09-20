@@ -1,5 +1,6 @@
 """Build Conda packages from Mojo projects."""
 
+from pathlib.path import Path
 from python import Python
 
 struct Builder:
@@ -8,8 +9,13 @@ struct Builder:
 		pass
 	
 	fn build(self, directory: String) raises:
+		dirpath = Path(directory)
+		if not dirpath.exists():
+			raise Error("Directory does not exist: " + directory)
+		if not dirpath.is_dir():
+			raise Error("Not a directory: " + directory)
+		
 		subprocess = Python.import_module("subprocess")
-		# TODO check that directory is a valid path
 		py_array = Python.list()
 		py_array.append("conda-build")
 		py_array.append(directory)

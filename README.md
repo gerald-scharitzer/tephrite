@@ -54,7 +54,7 @@ with [Git](https://git-scm.com/book),
 7. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
 8. Execute with `target/tephrite`
 9. Package with `mojo package -o target src/tephrite`
-10. Exit the Magic shell with `exit`
+10. Exit the Magic shell with `logout`
 11. Build Conda package with `magic run build`
 12. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
 13. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
@@ -67,10 +67,6 @@ with [Git](https://git-scm.com/book),
 20. Clean with `rm -r target`
 
 # 📋 Backlog
-
-Build Conda packages with [`conda-build`](https://docs.conda.io/projects/conda-build) via CLI and the Python [`subprocess`](https://docs.python.org/3/library/subprocess.html) module.
-
-Define Conda build as Magic task.
 
 Publish Mojo packages as Conda packages.
 
