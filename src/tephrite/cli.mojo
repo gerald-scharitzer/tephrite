@@ -40,7 +40,7 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 				return EXIT_FAILURE
 		elif arg_state == ARG_STATE_BUILD: # build package
 			builder = Builder()
-			builder.build(arg)
+			_ = builder.build(arg) # TODO handle package path
 			arg_state = ARG_STATE_NEW
 		else:
 			raise Error("invalid argument state " + str(arg_state) + " at index " + str(argx))

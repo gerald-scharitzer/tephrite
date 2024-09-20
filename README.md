@@ -70,6 +70,8 @@ with [Git](https://git-scm.com/book),
 
 Publish Mojo packages as Conda packages.
 
+Sync `mojoproject.toml` to Conda recipe.
+
 Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).
 
 `mojo doc` all source files, when it can generate something more human-readable than JSON.
