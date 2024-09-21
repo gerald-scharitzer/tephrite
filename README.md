@@ -51,7 +51,7 @@ with [Git](https://git-scm.com/book),
 4. Start the Magic shell with `magic shell`
 5. Test with `mojo test`
 6. Run with `mojo src/main.mojo`
-7. Build with `mkdir -p target && mojo build -o target/tephrite src/main.mojo`
+7. Build with `mkdir -p target/conda && mojo build -o target/tephrite src/main.mojo`
 8. Execute with `target/tephrite`
 9. Package with `mojo package -o target src/tephrite`
 10. Exit the Magic shell with `logout`
@@ -69,6 +69,8 @@ with [Git](https://git-scm.com/book),
 # 📋 Backlog
 
 Publish Mojo packages as Conda packages.
+
+Set output folder of build, such that the CLI output need not be parsed.
 
 Sync `mojoproject.toml` to Conda recipe.
 
