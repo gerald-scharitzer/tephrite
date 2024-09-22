@@ -91,3 +91,5 @@ Process packages independent from their containing file system structure.
 Array of literals cannot be subscripted (runtime error).
 
 Code diagnostics cannot resolve imports from nested tests.
+
+Not specifying `about.license_family` causes invalid license "BSD 3-Clause" in info/index.json.

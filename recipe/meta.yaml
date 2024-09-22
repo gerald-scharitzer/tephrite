@@ -3,11 +3,16 @@ package:
   version: "0.1.0"
 
 source:
-  path: "../target"
+  - path: "../target"
+  - path: "../LICENSE"
 
 build:
   string: dev0
   noarch: generic
   include_recipe: False
+  script: mkdir -p $PREFIX/lib/mojo && cp $SRC_DIR/$PKG_NAME.mojopkg $PREFIX/lib/mojo
 
-# TODO about license
+about:
+  license: BSD 3-Clause
+  license_file: LICENSE
+  license_family: BSD
