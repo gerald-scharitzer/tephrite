@@ -3,12 +3,14 @@
 from pathlib.path import Path
 from python import Python
 
+alias RECIPE = "recipe"
+
 struct Builder:
 
 	fn __init__(inout self):
 		pass
 	
-	fn build(self, directory: String) raises -> Path:
+	fn build(self, directory: String = RECIPE) raises -> Path:
 		dirpath = Path(directory)
 		if not dirpath.exists():
 			raise Error("Directory does not exist: " + directory)
