@@ -16,3 +16,5 @@ about:
   license: BSD 3-Clause
   license_file: LICENSE
   license_family: BSD
+  summary: Build Conda Mojo packages
+  description: Build Conda packages from Mojo projects
