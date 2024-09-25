@@ -1,13 +1,12 @@
 package:
   name: tephrite
-  version: "0.1.0"
+  version: "0.1.0a0.dev0"
 
 source:
   - path: "../target"
   - path: "../LICENSE"
 
 build:
-  string: dev0
   noarch: generic
   include_recipe: False
   script: mkdir -p $PREFIX/lib/mojo && cp $SRC_DIR/$PKG_NAME.mojopkg $PREFIX/lib/mojo

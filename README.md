@@ -39,6 +39,16 @@ Installing a package stores it in the file system.
 
 What is the module search order?
 
+## Package Versions
+
+Magic is based on Conda and [Conda's package version specifiers](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html#package-match-specifications)
+are based on [Python version specifiers](https://packaging.python.org/en/latest/specifications/version-specifiers/).
+
+Python version specifiers and [Semantic Versioning (SemVer)](https://semver.org/) are [not fully compatible](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning).
+
+Use SemVer for the first three components of the [release segment](https://packaging.python.org/en/latest/specifications/version-specifiers/#final-releases).
+Use Python pre- and developmental releases instead of SemVer pre-releases.
+
 # 🪛 Develop
 
 with [Git](https://git-scm.com/book),
@@ -48,7 +58,7 @@ with [Git](https://git-scm.com/book),
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
 3. Update with `magic update`
-4. Sync `VERSION` in [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+4. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
 5. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
 6. Sync `description` in [`mojoproject.toml`](mojoproject.toml) and [`meta.yaml`](recipe/meta.yaml)
 7. Start the Magic shell with `magic shell`
@@ -59,12 +69,12 @@ with [Git](https://git-scm.com/book),
 12. Package with `mojo package -o target src/tephrite`
 13. Exit the Magic shell with `logout`
 14. Build Conda package with `magic run build`
-15. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version.tar.bz2` where `version` is the [semantic version](https://semver.org)
+15. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning)
 16. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
 17. Stage with `git add`
 18. Commit with `git commit -m "message"` where `message` describes the changes
 19. Push branch with `git push`
-20. Tag with `git tag version` where `version` is the [semantic version](https://semver.org/)
+20. Tag with `git tag version` where `version` is the semantic Python version
 21. Push tag with `git push origin tag` where `tag` is the version
 22. Clean with `rm -r target`
 
@@ -91,8 +101,6 @@ Process packages independent from their containing file system structure.
 - review license
 
 ## Issues
-
-Conda package versions do not support SemVer pre-releases.
 
 Array of literals cannot be subscripted (runtime error).
 

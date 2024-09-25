@@ -4,7 +4,7 @@ channels = ["conda-forge", "https://conda.modular.com/max"]
 description = "Build Conda packages from Mojo projects"
 name = "tephrite"
 platforms = ["linux-64"]
-version = "0.1.0-dev0"
+version = "0.1.0a0.dev0"
 
 [tasks]
 build = "conda-build --output-folder target/conda recipe"
