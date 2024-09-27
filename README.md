@@ -1,19 +1,25 @@
 # 🌋 Tephrite
 
-Build Conda packages from Mojo projects.
+Build and publish Conda packages from Mojo projects.
+
+**⚠️ Warning 🧪 Experimental Code 🚧 Under Construction**
 
 [Magic](https://docs.modular.com/magic/) is a package manager for Mojo projects.
 Build Mojo packages such that they can be published, searched, added, and installed.
 
-**⚠️ Warning 🧪 Experimental Code 🚧 Under Construction**
-
 # 🔌 Use
 
-`tephrite build <dir>` builds a Conda package from the recipe in directory `<dir>`.
+Build Conda packages with `tephrite build <dir>` from the recipe in directory `<dir>`.
+
+Publish Conda packages with `anaconda upload <package>`.
 
 Just `tephrite` without arguments prints the usage.
 
-Search, add, and install packages with [`magic` commands](https://docs.modular.com/magic/commands).
+Search for packages with [`magic search [-c <channel>] <package>`](https://docs.modular.com/magic/commands#magic-search).
+
+Add and install packages with [`magic add <package>`](https://docs.modular.com/magic/commands#magic-add).
+
+Import and use [Mojo packages](https://docs.modular.com/mojo/manual/packages).
 
 ## Setup
 
