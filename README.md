@@ -96,6 +96,8 @@ Sync `mojoproject.toml` to Conda recipe.
 
 Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).
 
+Build with [Rattler](https://github.com/prefix-dev/rattler-build) instead of Conda.
+
 `mojo doc` all source files, when it can generate something more human-readable than JSON.
 
 Process packages independent from their containing file system structure.
