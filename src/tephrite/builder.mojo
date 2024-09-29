@@ -27,12 +27,12 @@ struct Builder:
 			makedirs(output_path, 0o755)
 		
 		subprocess = Python.import_module("subprocess")
-		py_array = Python.list()
-		py_array.append("conda-build")
-		py_array.append("--output-folder")
-		py_array.append(output)
-		py_array.append(recipe)
-		process = subprocess.run(py_array, capture_output=True, text=True)
+		command = Python.list()
+		command.append("conda-build")
+		command.append("--output-folder")
+		command.append(output)
+		command.append(recipe)
+		process = subprocess.run(command, capture_output=True, text=True)
 		exit_code = int(process.returncode)
 		if exit_code != 0:
 			print(process.stdout)
