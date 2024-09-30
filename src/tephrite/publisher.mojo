@@ -3,11 +3,17 @@
 from pathlib.path import Path
 from python import Python
 
+from .recipe import Recipe
+
 struct Publisher:
 
     fn __init__(inout self):
         pass
     
+    fn publish(self) raises:
+        recipe = Recipe("recipe")
+        recipe.meta()
+
     fn publish(self, package: String) raises:
         # TODO check package path
         subprocess = Python.import_module("subprocess")

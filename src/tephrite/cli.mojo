@@ -1,14 +1,18 @@
 from tephrite import VERSION
+from .publisher import Publisher
 
 alias USAGE = """\
 Usage: tephrite [arguments]
 Arguments:
 
 	b | build <dir>
-		Builds a Conda package from the recipe in directory <dir>.
+		Build a Conda package from the recipe in directory <dir>.
+	
+	p | publish
+		Publish a Conda package built from the recipe.
 	
 	v | version
-		Prints the version of this package.
+		Print the version of this package.
 """
 
 alias EXIT_SUCCESS = 0
@@ -26,12 +30,16 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 	
 	var argx = 0
 	var arg_state = ARG_STATE_COMMAND
-	for arg in args: # simple state machine
+	for arg in args: # simple state machine TODO simplify to varying number of arguments
 		if arg_state == ARG_STATE_COMMAND: # do nothing with the command name
 			arg_state = ARG_STATE_NEW
 		elif arg_state == ARG_STATE_NEW: # new argument sequence
 			if arg == "b" or arg == "build":
 				arg_state = ARG_STATE_BUILD
+			elif arg == "p" or arg == "publish":
+				publisher = Publisher()
+				publisher.publish()
+				arg_state = ARG_STATE_NEW
 			elif arg == "v" or arg == "version":
 				print(VERSION)
 				arg_state = ARG_STATE_NEW

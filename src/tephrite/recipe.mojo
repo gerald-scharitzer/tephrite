@@ -19,7 +19,7 @@ struct Recipe:
             raise Error("meta.yaml is not a file in " + self.directory)
         
         yaml = Python.import_module("yaml")
-        py_meta = yaml.safe_load(str(meta_path))
+        py_meta = yaml.safe_load(str(meta_path)) # FIXME get stream from filename
         package_name = str(py_meta.package.name)
         print("package", package_name)
     
