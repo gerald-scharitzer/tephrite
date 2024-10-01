@@ -8,6 +8,7 @@ version = "0.1.0a0.dev0"
 
 [tasks]
 build = "conda-build --output-folder target/conda recipe"
+main = "mojo src/main.mojo"
 
 [dependencies]
 max = ">=24.4.0,<25"

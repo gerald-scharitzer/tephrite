@@ -64,25 +64,32 @@ with [Git](https://git-scm.com/book),
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
 3. Update with `magic update`
-4. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
-5. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
-6. Sync `description` in [`mojoproject.toml`](mojoproject.toml) and [`meta.yaml`](recipe/meta.yaml)
-7. Start the Magic shell with `magic shell`
-8. Test with `mojo test`
-9. Run with `mojo src/main.mojo`
-10. Build with `mkdir -p target/conda && mojo build -o target/tephrite src/main.mojo`
-11. Execute with `target/tephrite`
-12. Package with `mojo package -o target src/tephrite`
-13. Exit the Magic shell with `logout`
-14. Build Conda package with `magic run build`
-15. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning)
-16. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
-17. Stage with `git add`
-18. Commit with `git commit -m "message"` where `message` describes the changes
-19. Push branch with `git push`
-20. Tag with `git tag version` where `version` is the semantic Python version
-21. Push tag with `git push origin tag` where `tag` is the version
-22. Clean with `rm -r target`
+
+## ♻️ Cycle
+
+1. Clean with `rm -r target`
+2. Run with `magic run main`
+3. Start the Magic shell with `magic shell`
+4. Test with `mojo test`
+5. Build with `mkdir -p target/conda && mojo build -o target/tephrite src/main.mojo`
+6. Execute with `target/tephrite`
+7. Package with `mojo package -o target src/tephrite`
+8. Exit the Magic shell with `logout`
+9. Build Conda package with `magic run build`
+
+## 🚢 Release
+
+1. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+2. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
+3. Sync `description` in [`mojoproject.toml`](mojoproject.toml) and [`meta.yaml`](recipe/meta.yaml)
+4. Run the [development cycle](#cycle)
+5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning)
+6. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
+7. Stage with `git add`
+8. Commit with `git commit -m "message"` where `message` describes the changes
+9. Push branch with `git push`
+10. Tag with `git tag version` where `version` is the semantic Python version
+11. Push tag with `git push origin tag` where `tag` is the version
 
 # 📋 Backlog
 
@@ -98,6 +105,8 @@ Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-bu
 
 Build with [Rattler](https://github.com/prefix-dev/rattler-build) instead of Conda.
 
+Upload to [prefix.dev](https://prefix.dev/docs/prefix/api#uploading-a-package-via-api) via API.
+
 `mojo doc` all source files, when it can generate something more human-readable than JSON.
 
 Process packages independent from their containing file system structure.
@@ -108,7 +117,7 @@ Process packages independent from their containing file system structure.
 - doc tests
 - review license
 
-## Issues
+## ⚠️ Issues
 
 Array of literals cannot be subscripted (runtime error).
 
