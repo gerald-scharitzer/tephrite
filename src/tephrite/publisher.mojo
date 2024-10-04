@@ -12,7 +12,9 @@ struct Publisher:
     
     fn publish(self) raises:
         recipe = Recipe("recipe")
-        recipe.meta()
+        meta = recipe.meta()
+        path = Path("target/conda") / meta.path()
+        self.publish(str(path))
 
     fn publish(self, package: String) raises:
         # TODO check package path

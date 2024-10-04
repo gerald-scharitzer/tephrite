@@ -3,6 +3,8 @@
 from pathlib.path import Path
 from python import Python
 
+from .conda import Meta
+
 struct Recipe:
 
 	var directory: String
@@ -11,7 +13,7 @@ struct Recipe:
 		self.directory = directory
 		pass
 	
-	fn meta(self) raises:
+	fn meta(self) raises -> Meta:
 		"""Get package metadata from recipe
 
 		The build depends on the build number and the build string.
@@ -60,5 +62,4 @@ struct Recipe:
 		else:
 			build = build_string
 
-		path = platform + "/" + package_name + "-" + package_version + "-" + build + ".tar.bz2" # TODO handle .conda
-		print("path", path) # TODO remove
+		return Meta(package_name, package_version, build, platform) # TODO handle .conda
