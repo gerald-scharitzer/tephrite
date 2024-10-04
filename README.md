@@ -11,7 +11,7 @@ Build Mojo packages such that they can be published, searched, added, and instal
 
 Build Conda packages with `tephrite build <dir>` from the recipe in directory `<dir>`.
 
-Publish Conda packages with `anaconda upload <package>`.
+Publish Conda packages with `tephrite publish` after `magic run anaconda login`.
 
 Just `tephrite` without arguments prints the usage.
 

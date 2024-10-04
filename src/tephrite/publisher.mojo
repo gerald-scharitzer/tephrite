@@ -14,10 +14,12 @@ struct Publisher:
         recipe = Recipe("recipe")
         meta = recipe.meta()
         path = Path("target/conda") / meta.path()
+        print("path", path)
         self.publish(str(path))
 
     fn publish(self, package: String) raises:
         # TODO check package path
+        # TODO anaconda login
         subprocess = Python.import_module("subprocess")
         command = Python.list()
         command.append("anaconda")
