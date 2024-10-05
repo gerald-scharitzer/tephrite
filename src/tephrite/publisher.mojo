@@ -3,6 +3,7 @@
 from pathlib.path import Path
 from python import Python
 
+from .anaconda import is_logged_in
 from .recipe import Recipe
 
 struct Publisher:
@@ -14,12 +15,12 @@ struct Publisher:
         recipe = Recipe("recipe")
         meta = recipe.meta()
         path = Path("target/conda") / meta.path()
-        print("path", path)
         self.publish(str(path))
 
     fn publish(self, package: String) raises:
         # TODO check package path
-        # TODO anaconda login
+        if not is_logged_in():
+            raise Error("Not logged in to anaconda.org")
         subprocess = Python.import_module("subprocess")
         command = Python.list()
         command.append("anaconda")
