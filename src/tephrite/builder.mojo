@@ -13,6 +13,7 @@ struct Builder:
 		pass
 	
 	fn build(self, recipe: String = RECIPE, output: String = TARGET_CONDA) raises -> Path:
+		"""Build Conda package from recipe directory into output directory."""
 		recipe_path = Path(recipe)
 		if not recipe_path.exists():
 			raise Error("Recipe directory does not exist: " + recipe)

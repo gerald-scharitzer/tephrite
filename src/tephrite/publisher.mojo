@@ -12,12 +12,14 @@ struct Publisher:
         pass
     
     fn publish(self) raises:
+        """Publish the Conda package specified in the recipe."""
         recipe = Recipe("recipe")
         meta = recipe.meta()
         path = Path("target/conda") / meta.path()
         self.publish(str(path))
 
     fn publish(self, package: String) raises:
+        """Publish the Conda package at the specified path."""
         # TODO check package path
         if not is_logged_in():
             raise Error("Not logged in to anaconda.org")

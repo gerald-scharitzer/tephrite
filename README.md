@@ -4,8 +4,11 @@ Build and publish Conda packages from Mojo projects.
 
 **⚠️ Warning 🧪 Experimental Code 🚧 Under Construction**
 
-[Magic](https://docs.modular.com/magic/) is a package manager for Mojo projects.
-Build Mojo packages such that they can be published, searched, added, and installed.
+Build Mojo packages with [`mojo package`](https://docs.modular.com/mojo/cli/package).
+
+Build and publish Conda packages from Mojo packages with `tephrite build` and `tephrite publish`.
+
+Search, add, and install Conda Mojo packages with the [Magic](https://docs.modular.com/magic/) package manager for Mojo projects.
 
 # 🔌 Use
 
@@ -82,7 +85,7 @@ with [Git](https://git-scm.com/book),
 
 1. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
 2. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
-3. Sync `description` in [`mojoproject.toml`](mojoproject.toml) and [`meta.yaml`](recipe/meta.yaml)
+3. Sync `description` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](recipe/meta.yaml), and [`main.mojo`](src/main.mojo).
 4. Run the [development cycle](#cycle)
 5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning)
 6. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
@@ -93,6 +96,8 @@ with [Git](https://git-scm.com/book),
 11. Push tag with `git push origin tag` where `tag` is the version
 
 # 📋 Backlog
+
+`mojo test`
 
 Authenticate to Anaconda with token.
 

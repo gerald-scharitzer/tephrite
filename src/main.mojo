@@ -1,6 +1,6 @@
-"""Tephrite - Mojo Extensions
+"""Tephrite - Build and publish Conda packages from Mojo projects.
 
-See usage in [cli.mojo](tephrite/cli.mojo).
+See usage in [`cli.mojo`](tephrite/cli.mojo).
 """
 from sys import argv, exit
 

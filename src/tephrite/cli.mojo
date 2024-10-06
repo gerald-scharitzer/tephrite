@@ -1,3 +1,5 @@
+"""Command line interface"""
+
 from tephrite import VERSION
 from .publisher import Publisher
 
@@ -21,6 +23,8 @@ alias EXIT_FAILURE = 1
 alias EXIT_INFO = 2
 
 fn run(args: VariadicList[StringRef]) raises -> Int:
+	"""Process command line arguments."""
+
 	alias ARG_STATE_START = 0
 	alias ARG_STATE_COMMAND = 1
 	alias ARG_STATE_BUILD = 2
@@ -66,4 +70,5 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 	return EXIT_SUCCESS
 
 fn print_usage():
+	"""Print the usage string to standard output."""
 	print(USAGE, end="")
