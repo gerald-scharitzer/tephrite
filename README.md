@@ -14,8 +14,10 @@ Search, add, and install Conda Mojo packages with the [Magic](https://docs.modul
 
 Build Conda packages with `tephrite build [<dir>]` from the recipe in directory `<dir>`.
 If `<dir>` is not specified, then build from `recipe`.
+This stores the package in directory `target/conda`.
 
 Publish Conda packages with `tephrite publish` after `magic run anaconda login`.
+This uploads the package specified in the recipe from directory `target/conda`.
 
 Just `tephrite` without arguments prints the usage.
 
