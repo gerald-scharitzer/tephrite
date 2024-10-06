@@ -2,11 +2,12 @@ from tephrite import VERSION
 from .publisher import Publisher
 
 alias USAGE = """\
-Usage: tephrite [arguments]
-Arguments:
+Usage: tephrite [command [objects...]]
+Commands:
 
-	b | build <dir>
+	b | build [<dir>]
 		Build a Conda package from the recipe in directory <dir>.
+		If <dir> is not specified, then the directory `recipe` is used.
 	
 	p | publish
 		Publish a Conda package built from the recipe.
@@ -20,43 +21,47 @@ alias EXIT_FAILURE = 1
 alias EXIT_INFO = 2
 
 fn run(args: VariadicList[StringRef]) raises -> Int:
-	alias ARG_STATE_COMMAND = 0
-	alias ARG_STATE_NEW = 1
+	alias ARG_STATE_START = 0
+	alias ARG_STATE_COMMAND = 1
 	alias ARG_STATE_BUILD = 2
 
 	if len(args) < 2:
 		print_usage()
 		return EXIT_INFO
-	
-	var argx = 0
-	var arg_state = ARG_STATE_COMMAND
+
+	argx = 0
+	arg_state = ARG_STATE_START
+	has_objects = False
 	for arg in args: # simple state machine TODO simplify to varying number of arguments
-		if arg_state == ARG_STATE_COMMAND: # do nothing with the command name
-			arg_state = ARG_STATE_NEW
-		elif arg_state == ARG_STATE_NEW: # new argument sequence
+		if arg_state == ARG_STATE_START: # do nothing with the command name
+			arg_state = ARG_STATE_COMMAND
+		elif arg_state == ARG_STATE_COMMAND: # options or command
 			if arg == "b" or arg == "build":
 				arg_state = ARG_STATE_BUILD
 			elif arg == "p" or arg == "publish":
 				publisher = Publisher()
 				publisher.publish()
-				arg_state = ARG_STATE_NEW
+				return EXIT_SUCCESS
 			elif arg == "v" or arg == "version":
 				print(VERSION)
-				arg_state = ARG_STATE_NEW
+				return EXIT_SUCCESS
 			else:
 				print_usage()
 				return EXIT_FAILURE
 		elif arg_state == ARG_STATE_BUILD: # build package
+			has_objects = True
 			builder = Builder()
 			_ = builder.build(arg) # TODO handle package path
-			arg_state = ARG_STATE_NEW
-		else:
-			raise Error("invalid argument state " + str(arg_state) + " at index " + str(argx))
+		else: # argument state
+			raise Error("ERROR invalid argument state " + str(arg_state) + " at index " + str(argx)) # TODO proper error message
 		argx += 1
 
-	if arg_state != ARG_STATE_NEW: # last argument not complete
-		print_usage()
-		return EXIT_FAILURE
+	if not has_objects: # run command with defaults
+		if arg_state == ARG_STATE_BUILD: # build default recipe
+			builder = Builder()
+			_ = builder.build() # TODO handle package path
+		else: # argument state
+			raise Error("ERROR invalid argument state " + str(arg_state) + " at index " + str(argx)) # TODO proper error message
 	
 	return EXIT_SUCCESS
 

@@ -3,7 +3,7 @@
 from pathlib.path import Path
 
 struct Meta:
-	"""Conda package metadata"""
+	"""Wrap Conda package metadata."""
 
 	var name: String
 	var version: String
@@ -19,5 +19,5 @@ struct Meta:
 		self.type = type
 	
 	fn path(self) -> Path:
-		"""Get package path"""
+		"""Get package path."""
 		return Path(self.platform + "/" + self.name + "-" + self.version + "-" + self.build + "." + self.type)

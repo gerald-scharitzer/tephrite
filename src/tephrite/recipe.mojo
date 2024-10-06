@@ -14,7 +14,7 @@ struct Recipe:
 		pass
 	
 	fn meta(self) raises -> Meta:
-		"""Get package metadata from recipe
+		"""Get package metadata from recipe.
 
 		The build depends on the build number and the build string.
 		If the string is specified, then it overrides the number.

@@ -9,7 +9,8 @@ Build Mojo packages such that they can be published, searched, added, and instal
 
 # 🔌 Use
 
-Build Conda packages with `tephrite build <dir>` from the recipe in directory `<dir>`.
+Build Conda packages with `tephrite build [<dir>]` from the recipe in directory `<dir>`.
+If `<dir>` is not specified, then build from `recipe`.
 
 Publish Conda packages with `tephrite publish` after `magic run anaconda login`.
 
@@ -67,7 +68,7 @@ with [Git](https://git-scm.com/book),
 
 ## ♻️ Cycle
 
-1. Clean with `rm -r target`
+1. Clean with `magic run clean`
 2. Run with `magic run main`
 3. Start the Magic shell with `magic shell`
 4. Test with `mojo test`
@@ -93,11 +94,7 @@ with [Git](https://git-scm.com/book),
 
 # 📋 Backlog
 
-Publish Mojo packages as Conda packages.
-
 Authenticate to Anaconda with token.
-
-Set output folder of build, such that the CLI output need not be parsed.
 
 Sync `mojoproject.toml` to Conda recipe.
 
