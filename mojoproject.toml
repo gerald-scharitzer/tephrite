@@ -10,6 +10,7 @@ version = "0.1.0a0.dev0"
 build = "conda-build --output-folder target/conda recipe"
 clean = "rm -rf target"
 main = "mojo src/main.mojo"
+test = "mojo test src"
 
 [dependencies]
 max = ">=24.4.0,<25"

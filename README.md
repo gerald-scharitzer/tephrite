@@ -64,8 +64,9 @@ Use Python pre- and developmental releases instead of SemVer pre-releases.
 # 🪛 Develop
 
 with [Git](https://git-scm.com/book),
-[Mojo](https://docs.modular.com/mojo/manual/), and
-[conda-build](https://docs.conda.io/projects/conda-build/en/stable/).
+[Mojo](https://docs.modular.com/mojo/manual/),
+[conda-build](https://docs.conda.io/projects/conda-build/en/stable/), and
+[anaconda](https://docs.anaconda.com/anacondaorg/commandreference/).
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
