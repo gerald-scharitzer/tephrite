@@ -8,11 +8,18 @@ alias RECIPE = "recipe"
 alias TARGET_CONDA = "target/conda"
 
 struct Builder:
+	"""Build Conda packages from Mojo projects.
 
-	fn __init__(inout self):
-		pass
+	Fields:
+		output: Path to the output directory for Conda packages.
+	"""
+
+	var output: String
+
+	fn __init__(inout self, output: String = TARGET_CONDA):
+		self.output = output
 	
-	fn build(self, recipe: String = RECIPE, output: String = TARGET_CONDA) raises -> Path:
+	fn build(self, recipe: String = RECIPE) raises -> Path:
 		"""Build Conda package from recipe directory into output directory."""
 		recipe_path = Path(recipe)
 		if not recipe_path.exists():
@@ -20,10 +27,10 @@ struct Builder:
 		if not recipe_path.is_dir():
 			raise Error("Recipe must be a directory: " + recipe)
 		
-		output_path = Path(output)
+		output_path = Path(self.output)
 		if output_path.exists():
 			if not output_path.is_dir():
-				raise Error("Output must be a directory: " + output)
+				raise Error("Output must be a directory: " + self.output)
 		else:
 			makedirs(output_path, 0o755)
 		
@@ -31,7 +38,7 @@ struct Builder:
 		command = Python.list()
 		command.append("conda-build")
 		command.append("--output-folder")
-		command.append(output)
+		command.append(self.output)
 		command.append(recipe)
 		process = subprocess.run(command, capture_output=True, text=True)
 		exit_code = int(process.returncode)

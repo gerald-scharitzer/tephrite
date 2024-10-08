@@ -100,15 +100,15 @@ with [Git](https://git-scm.com/book),
 
 # 📋 Backlog
 
-`mojo test`
+Build with [Rattler](https://github.com/prefix-dev/rattler-build) instead of Conda.
+
+Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).
+
+Build and package binaries as platform-specific Conda packages.
 
 Authenticate to Anaconda with token.
 
 Sync `mojoproject.toml` to Conda recipe.
-
-Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).
-
-Build with [Rattler](https://github.com/prefix-dev/rattler-build) instead of Conda.
 
 Upload to [prefix.dev](https://prefix.dev/docs/prefix/api#uploading-a-package-via-api) via API.
 
