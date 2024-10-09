@@ -4,8 +4,8 @@ from os import makedirs
 from pathlib.path import Path
 from python import Python
 
-alias RECIPE = "recipe"
-alias TARGET_CONDA = "target/conda"
+alias DEFAULT_RECIPE_DIR = "recipe"
+alias DEFAULT_OUTPUT_DIR = "target/conda"
 
 struct Builder:
 	"""Build Conda packages from Mojo projects.
@@ -16,10 +16,10 @@ struct Builder:
 
 	var output: String
 
-	fn __init__(inout self, output: String = TARGET_CONDA):
+	fn __init__(inout self, output: String = DEFAULT_OUTPUT_DIR):
 		self.output = output
 	
-	fn build(self, recipe: String = RECIPE) raises -> Path:
+	fn build(self, recipe: String = DEFAULT_RECIPE_DIR) raises -> Path:
 		"""Build Conda package from recipe directory into output directory."""
 		recipe_path = Path(recipe)
 		if not recipe_path.exists():
