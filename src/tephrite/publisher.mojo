@@ -4,6 +4,7 @@ from pathlib.path import Path
 from python import Python
 
 from .anaconda import is_logged_in
+from .builder import DEFAULT_RECIPE_DIR, DEFAULT_OUTPUT_DIR
 from .recipe import Recipe
 
 struct Publisher:
@@ -13,9 +14,9 @@ struct Publisher:
     
     fn publish(self) raises:
         """Publish the Conda package specified in the recipe."""
-        recipe = Recipe("recipe")
+        recipe = Recipe(DEFAULT_RECIPE_DIR)
         meta = recipe.meta()
-        path = Path("target/conda") / meta.path()
+        path = Path(DEFAULT_OUTPUT_DIR) / meta.path()
         self.publish(str(path))
 
     fn publish(self, package: String) raises:
