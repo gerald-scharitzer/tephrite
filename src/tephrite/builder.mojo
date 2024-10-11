@@ -20,10 +20,17 @@ struct Builder:
 		self.output = output
 	
 	fn build(self, recipe: String = DEFAULT_RECIPE_DIR) raises -> Path:
-		"""Build Conda package from recipe directory into output directory."""
+		"""Build Conda package from recipe directory into output directory.
+
+		Arguments:
+			recipe: Path to the recipe directory
+		
+		Returns:
+			Path to the built Conda package file.
+		"""
 		recipe_path = Path(recipe)
 		if not recipe_path.exists():
-			raise Error("Recipe directory does not exist: " + recipe)
+			raise Error("Recipe does not exist: " + recipe)
 		if not recipe_path.is_dir():
 			raise Error("Recipe must be a directory: " + recipe)
 		

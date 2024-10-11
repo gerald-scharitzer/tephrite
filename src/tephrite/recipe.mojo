@@ -3,7 +3,7 @@
 from pathlib.path import Path
 from python import Python
 
-from .conda import Meta
+from .conda import Meta, PLATFORM_NOARCH
 
 struct Recipe:
 
@@ -39,11 +39,11 @@ struct Recipe:
 		package_version = str(py_meta["package"]["version"])
 		py_build = py_meta["build"] # TODO handle python KeyError
 
-		py_build_noarch = py_build.get("noarch")
+		py_build_noarch = py_build.get(PLATFORM_NOARCH)
 		if py_build_noarch is None:
 			platform = str("TODO") # TODO handle arch and OS
 		else:
-			platform = str("noarch")
+			platform = PLATFORM_NOARCH
 
 		py_build_number = py_build.get("number")
 		if py_build_number is None:

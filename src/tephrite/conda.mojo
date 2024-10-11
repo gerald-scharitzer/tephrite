@@ -2,6 +2,11 @@
 
 from pathlib.path import Path
 
+alias PLATFORM_NOARCH = "noarch"
+
+alias TYPE_CONDA = "conda"
+alias TYPE_TAR_BZ2 = "tar.bz2"
+
 struct Meta:
 	"""Wrap Conda package metadata."""
 
@@ -11,7 +16,7 @@ struct Meta:
 	var platform: String
 	var type: String
 
-	fn __init__(inout self, name: String, version: String, build: String = "0", platform: String = "noarch", type: String = "tar.bz2"):
+	fn __init__(inout self, name: String, version: String, build: String = "0", platform: String = PLATFORM_NOARCH, type: String = TYPE_TAR_BZ2):
 		self.name = name
 		self.version = version
 		self.build = build

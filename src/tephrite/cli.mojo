@@ -23,7 +23,7 @@ alias EXIT_FAILURE = 1
 alias EXIT_INFO = 2
 
 fn run(args: VariadicList[StringRef]) raises -> Int:
-	"""Process command line arguments."""
+	"""Process command line arguments and return exit code."""
 
 	alias ARG_STATE_START = 0
 	alias ARG_STATE_COMMAND = 1
