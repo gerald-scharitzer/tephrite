@@ -89,7 +89,7 @@ with [Git](https://git-scm.com/book),
 2. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
 3. Sync `description` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](recipe/meta.yaml), and [`main.mojo`](src/main.mojo).
 4. Run the [development cycle](#cycle)
-5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning), or with `magic run tephrite p`
+5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning), or with `magic run target/tephrite p`
 6. Document with `magic run doc`
 7. Stage with `git add`
 8. Commit with `git commit -m "message"` where `message` describes the changes
