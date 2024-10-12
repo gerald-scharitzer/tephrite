@@ -11,7 +11,6 @@ struct Recipe:
 
 	fn __init__(inout self, directory: String):
 		self.directory = directory
-		pass
 	
 	fn meta(self) raises -> Meta:
 		"""Get package metadata from recipe.

@@ -7,10 +7,13 @@ platforms = ["linux-64"]
 version = "0.1.0a0.dev0"
 
 [tasks]
-build = "conda-build --output-folder target/conda recipe"
-clean = "rm -rf target"
 main = "mojo src/main.mojo"
 test = "mojo test src"
+mojo-build = "mkdir -p target && mojo build -o target/tephrite src/main.mojo"
+mojo-pack = "mkdir -p target && mojo package -o target src/tephrite"
+build = "mkdir -p target/conda && conda-build --output-folder target/conda recipe"
+doc = "mkdir -p target && mojo doc -o target/tephrite-doc.json src/tephrite"
+clean = "rm -rf target"
 
 [dependencies]
 max = ">=24.4.0,<25"

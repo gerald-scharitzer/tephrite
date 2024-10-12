@@ -23,7 +23,8 @@ Just `tephrite` without arguments prints the usage.
 
 Search for packages with [`magic search [-c <channel>] <package>`](https://docs.modular.com/magic/commands#magic-search).
 
-Add and install packages with [`magic add <package>`](https://docs.modular.com/magic/commands#magic-add).
+Add and install packages with [`magic add <package>`](https://docs.modular.com/magic/commands#magic-add) and
+[`magic install`](https://docs.modular.com/magic/commands#magic-install).
 
 Import and use [Mojo packages](https://docs.modular.com/mojo/manual/packages).
 
@@ -70,19 +71,17 @@ with [Git](https://git-scm.com/book),
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/tephrite.git`
 2. Enter with `cd tephrite`
-3. Update with `magic update`
+3. Update with `magic update [-n]`
 
 ## ♻️ Cycle
 
 1. Clean with `magic run clean`
 2. Run with `magic run main`
-3. Start the Magic shell with `magic shell`
-4. Test with `mojo test`
-5. Build with `mkdir -p target/conda && mojo build -o target/tephrite src/main.mojo`
-6. Execute with `target/tephrite`
-7. Package with `mojo package -o target src/tephrite`
-8. Exit the Magic shell with `logout`
-9. Build Conda package with `magic run build`
+3. Test with `magic run test`
+4. Build with `magic run mojo-build`
+5. Execute with `magic run target/tephrite`
+6. Pack with `magic run mojo-pack`
+7. Build Conda package with `magic run build` or `magic run target/tephrite b`
 
 ## 🚢 Release
 
@@ -90,8 +89,8 @@ with [Git](https://git-scm.com/book),
 2. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
 3. Sync `description` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](recipe/meta.yaml), and [`main.mojo`](src/main.mojo).
 4. Run the [development cycle](#cycle)
-5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning)
-6. Document with `mojo doc -o target/tephrite-doc.json src/tephrite`
+5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning), or with `magic run tephrite p`
+6. Document with `magic run doc`
 7. Stage with `git add`
 8. Commit with `git commit -m "message"` where `message` describes the changes
 9. Push branch with `git push`
@@ -100,11 +99,16 @@ with [Git](https://git-scm.com/book),
 
 # 📋 Backlog
 
-Build with [Rattler](https://github.com/prefix-dev/rattler-build) instead of Conda.
+Build with [Rattler](https://github.com/prefix-dev/rattler-build) instead of Conda to:
+- pack platform-specific binaries from `mojo build` into the `bin` directory
+- utilize Conda recipe version 2
+- build `.conda` packages
 
 Build Conda packages as [`.conda` files](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html).
 
 Build and package binaries as platform-specific Conda packages.
+
+Provide binaries and Mojo packages as Conda package features.
 
 Authenticate to Anaconda with token.
 
@@ -116,7 +120,6 @@ Upload to [prefix.dev](https://prefix.dev/docs/prefix/api#uploading-a-package-vi
 
 Process packages independent from their containing file system structure.
 
-- magic tasks
 - unit tests
 - integration tests
 - doc tests
