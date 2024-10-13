@@ -92,11 +92,15 @@ with [Git](https://git-scm.com/book),
 5. Run the [development cycle](#cycle)
 6. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning), or with `magic run target/tephrite p`
 7. Document with `magic run doc`
-8. Stage with `git add`
+8. Stage with `git add .`
 9. Commit with `git commit -m "message"` where `message` describes the changes
-10. Push branch with `git push`
+10. Push branch with `git push` or push new branch with `git push --set-upstream origin branch` where `branch` is the version.
 11. Tag with `git tag version` where `version` is the semantic Python version
 12. Push tag with `git push origin tag` where `tag` is the version
+
+## ✨ Feature
+
+1. Branch with `git branch feature` and `git checkout feature` where `feature` is the new feature.
 
 # 📋 Backlog
 
