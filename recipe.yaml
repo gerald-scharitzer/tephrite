@@ -1,0 +1,18 @@
+package:
+  name: tephrite
+  version: "0.2.0a0.dev0"
+
+source:
+  - path: target
+    use_gitignore: False
+
+build:
+  noarch: generic
+  script: mkdir -p $PREFIX/lib/mojo && cp $SRC_DIR/$PKG_NAME.mojopkg $PREFIX/lib/mojo
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  license_family: BSD
+  summary: Build and publish Conda Mojo packages
+  description: Build and publish Conda packages from Mojo projects

@@ -4,6 +4,7 @@
 # magic environments
 .magic
 # output
+output
 target
 # local
 .vscode
