@@ -101,6 +101,7 @@ with [Git](https://git-scm.com/book),
 ## ✨ Feature
 
 1. Branch with `git branch feature` and `git checkout feature` where `feature` is the new feature.
+2. Push the new branch with `git push --set-upstream origin feature` where `feature` is the new feature.
 
 # 📋 Backlog
 
