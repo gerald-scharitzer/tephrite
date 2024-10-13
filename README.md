@@ -85,17 +85,18 @@ with [Git](https://git-scm.com/book),
 
 ## 🚢 Release
 
-1. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
-2. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
-3. Sync `description` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](recipe/meta.yaml), and [`main.mojo`](src/main.mojo).
-4. Run the [development cycle](#cycle)
-5. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning), or with `magic run target/tephrite p`
-6. Document with `magic run doc`
-7. Stage with `git add`
-8. Commit with `git commit -m "message"` where `message` describes the changes
-9. Push branch with `git push`
-10. Tag with `git tag version` where `version` is the semantic Python version
-11. Push tag with `git push origin tag` where `tag` is the version
+1. Branch with `git branch version` and `git checkout version` where `version` is the next release.
+2. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+3. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
+4. Sync `description` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](recipe/meta.yaml), and [`main.mojo`](src/main.mojo).
+5. Run the [development cycle](#cycle)
+6. Upload Conda package with `magic run anaconda upload target/conda/noarch/tephrite-version-0.tar.bz2` where `version` is the [semantic Python version](https://packaging.python.org/en/latest/specifications/version-specifiers/#semantic-versioning), or with `magic run target/tephrite p`
+7. Document with `magic run doc`
+8. Stage with `git add`
+9. Commit with `git commit -m "message"` where `message` describes the changes
+10. Push branch with `git push`
+11. Tag with `git tag version` where `version` is the semantic Python version
+12. Push tag with `git push origin tag` where `tag` is the version
 
 # 📋 Backlog
 
