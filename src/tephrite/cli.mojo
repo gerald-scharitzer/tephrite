@@ -2,6 +2,7 @@
 
 from tephrite import VERSION
 from .publisher import Publisher
+from .rattler_builder import RattlerBuilder
 
 alias USAGE = """\
 Usage: tephrite [command [objects...]]
@@ -28,6 +29,7 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 	alias ARG_STATE_START = 0
 	alias ARG_STATE_COMMAND = 1
 	alias ARG_STATE_BUILD = 2
+	alias ARG_STATE_CONDA_BUILD = 3
 
 	if len(args) < 2:
 		print_usage()
@@ -42,6 +44,8 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 		elif arg_state == ARG_STATE_COMMAND: # options or command
 			if arg == "b" or arg == "build":
 				arg_state = ARG_STATE_BUILD
+			elif arg == "cb" or arg == "conda-build":
+				arg_state = ARG_STATE_CONDA_BUILD
 			elif arg == "p" or arg == "publish":
 				publisher = Publisher()
 				publisher.publish()
@@ -52,7 +56,12 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 			else:
 				print_usage()
 				return EXIT_FAILURE
-		elif arg_state == ARG_STATE_BUILD: # build package
+		elif arg_state == ARG_STATE_BUILD: # build package with rattler
+			has_objects = True
+			default_builder = RattlerBuilder() # TODO handle build hash
+			default_builder.recipe = arg
+			_ = default_builder.build() # TODO handle package path
+		elif arg_state == ARG_STATE_CONDA_BUILD: # build package with conda
 			has_objects = True
 			builder = Builder()
 			_ = builder.build(arg) # TODO handle package path
@@ -62,6 +71,9 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 
 	if not has_objects: # run command with defaults
 		if arg_state == ARG_STATE_BUILD: # build default recipe
+			default_builder = RattlerBuilder()
+			_ = default_builder.build() # TODO handle package path
+		elif arg_state == ARG_STATE_CONDA_BUILD: # build package with conda
 			builder = Builder()
 			_ = builder.build() # TODO handle package path
 		else: # argument state
