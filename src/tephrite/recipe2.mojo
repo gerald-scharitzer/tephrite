@@ -1,16 +1,19 @@
-"""Conda recipe version 1"""
+"""Conda recipe version 2
+
+https://prefix-dev.github.io/rattler-build/latest/reference/recipe_file/
+"""
 
 from pathlib.path import Path
 from python import Python
 
 from .conda import Meta, PLATFORM_NOARCH
 
-struct Recipe:
+struct Recipe2:
 
-	var directory: String
+	var path: String
 
-	fn __init__(inout self, directory: String):
-		self.directory = directory
+	fn __init__(inout self, path: String):
+		self.path = path
 	
 	fn meta(self) raises -> Meta:
 		"""Get package metadata from recipe.
@@ -25,11 +28,13 @@ struct Recipe:
 		|        | s      | s     |
 		| n      | s      | s     |
 		"""
-		meta_path = Path(self.directory) / "meta.yaml"
+		meta_path = Path(self.path)
 		if not meta_path.exists():
-			raise Error("meta.yaml not found in " + self.directory)
+			raise Error("Recipe not found: " + str(meta_path))
+		if meta_path.is_dir():
+			meta_path = Path(self.path) / "recipe.yaml"
 		if not meta_path.is_file():
-			raise Error("meta.yaml is not a file in " + self.directory)
+			raise Error("Recipe must be a file: " + str(meta_path))
 		
 		meta_yaml = meta_path.read_text() # FIXME stream instead of loading everything in memory
 		yaml = Python.import_module("yaml")
