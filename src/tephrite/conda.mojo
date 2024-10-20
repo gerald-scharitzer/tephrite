@@ -16,7 +16,7 @@ struct Meta:
 	var platform: String
 	var type: String
 
-	fn __init__(inout self, name: String, version: String, build: String = "0", platform: String = PLATFORM_NOARCH, type: String = TYPE_TAR_BZ2):
+	fn __init__(inout self, name: String, version: String, build: String = "0", platform: String = PLATFORM_NOARCH, type: String = TYPE_CONDA):
 		self.name = name
 		self.version = version
 		self.build = build

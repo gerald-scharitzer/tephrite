@@ -3,7 +3,7 @@
 from pathlib.path import Path
 from python import Python
 
-from .conda import Meta, PLATFORM_NOARCH
+from .conda import Meta, PLATFORM_NOARCH, TYPE_TAR_BZ2
 
 struct Recipe:
 
@@ -61,4 +61,4 @@ struct Recipe:
 		else:
 			build = build_string
 
-		return Meta(package_name, package_version, build, platform) # TODO handle .conda
+		return Meta(package_name, package_version, build, platform, TYPE_TAR_BZ2) # TODO handle .conda

@@ -12,7 +12,7 @@ struct Recipe2:
 
 	var path: String
 
-	fn __init__(inout self, path: String):
+	fn __init__(inout self, path: String = "recipe.yaml"):
 		self.path = path
 	
 	fn meta(self) raises -> Meta:
@@ -66,4 +66,4 @@ struct Recipe2:
 		else:
 			build = build_string
 
-		return Meta(package_name, package_version, build, platform) # TODO handle .conda
+		return Meta(package_name, package_version, build, platform) # TODO handle .tarz.bz2
