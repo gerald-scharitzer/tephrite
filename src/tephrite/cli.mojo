@@ -1,6 +1,7 @@
 """Command line interface"""
 
 from tephrite import VERSION
+from .conda_builder import CondaBuilder
 from .publisher import Publisher
 from .rattler_builder import RattlerBuilder
 
@@ -63,7 +64,7 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 			_ = default_builder.build() # TODO handle package path
 		elif arg_state == ARG_STATE_CONDA_BUILD: # build package with conda
 			has_objects = True
-			builder = Builder()
+			builder = CondaBuilder()
 			_ = builder.build(arg) # TODO handle package path
 		else: # argument state
 			raise Error("ERROR invalid argument state " + str(arg_state) + " at index " + str(argx)) # TODO proper error message
@@ -74,7 +75,7 @@ fn run(args: VariadicList[StringRef]) raises -> Int:
 			default_builder = RattlerBuilder()
 			_ = default_builder.build() # TODO handle package path
 		elif arg_state == ARG_STATE_CONDA_BUILD: # build package with conda
-			builder = Builder()
+			builder = CondaBuilder()
 			_ = builder.build() # TODO handle package path
 		else: # argument state
 			raise Error("ERROR invalid argument state " + str(arg_state) + " at index " + str(argx)) # TODO proper error message
