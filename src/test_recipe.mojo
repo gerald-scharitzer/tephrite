@@ -1,6 +1,6 @@
 from testing import assert_equal
 
-from tephrite.builder import DEFAULT_RECIPE_DIR
+from tephrite.conda_builder import DEFAULT_RECIPE_DIR
 from tephrite.recipe import Recipe
 
 fn test_it() raises:

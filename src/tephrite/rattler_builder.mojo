@@ -3,10 +3,12 @@
 from pathlib.path import Path
 from python import Python
 
+from .builder import Builder
+
 alias DEFAULT_RECIPE = "."
 alias DEFAULT_OUTPUT_DIR = "output"
 
-struct RattlerBuilder:
+struct RattlerBuilder(Builder):
 	"""Build Conda packages from Mojo projects with rattler-build.
 
 	Fields:
@@ -21,7 +23,7 @@ struct RattlerBuilder:
 		self.recipe = recipe
 		self.output = output
 	
-	fn build(self) raises:
+	fn build(self) raises -> Path:
 		"""Build Conda package from recipe directory into output directory."""
 		recipe_path = Path(self.recipe)
 		if not recipe_path.exists():
@@ -47,3 +49,4 @@ struct RattlerBuilder:
 			print(process.stdout)
 			print(process.stderr)
 			raise Error("rattler-build failed with exit code " + str(exit_code))
+		return output_path # FIXME verify this
