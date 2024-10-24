@@ -86,7 +86,8 @@ with [Git](https://git-scm.com/book),
 ## 🚢 Release
 
 1. Branch with `git branch version` and `git checkout version` where `version` is the next release.
-2. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml), [`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
+2. Sync `VERSION` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](meta.yaml),
+[`tephrite/__init__.mojo`](src/tephrite/__init__.mojo), and [`test_tephrite.mojo`](src/test_tephrite.mojo)
 3. Sync `USAGE` in [`cli.mojo`](src/cli.mojo) and [`README.md` section "Use"](#-use)
 4. Sync `description` in [`mojoproject.toml`](mojoproject.toml), [`meta.yaml`](recipe/meta.yaml), and [`main.mojo`](src/main.mojo).
 5. Run the [development cycle](#cycle)
