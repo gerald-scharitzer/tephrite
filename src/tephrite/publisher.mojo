@@ -4,7 +4,7 @@ from pathlib.path import Path
 from python import Python
 
 from .anaconda import is_logged_in
-from .builder import DEFAULT_RECIPE_DIR, DEFAULT_OUTPUT_DIR
+from .conda_builder import DEFAULT_RECIPE_DIR, DEFAULT_OUTPUT_DIR
 from .recipe import Recipe
 
 struct Publisher:
