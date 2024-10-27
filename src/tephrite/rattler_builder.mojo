@@ -49,4 +49,7 @@ struct RattlerBuilder(Builder):
 			print(process.stdout)
 			print(process.stderr)
 			raise Error("rattler-build failed with exit code " + str(exit_code))
+		stderr = str(process.stderr)
+		for line in stderr.splitlines():
+			print(line[]) # TODO get package path from output
 		return output_path # FIXME verify this
