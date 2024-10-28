@@ -24,7 +24,12 @@ struct RattlerBuilder(Builder):
 		self.output = output
 	
 	fn build(self) raises -> Path:
-		"""Build Conda package from recipe directory into output directory."""
+		"""Build Conda package from recipe directory into output directory.
+		
+		Get the path to the package file from the standard error of rattler-build.
+
+		Or search the output directory for the package file.
+		"""
 		recipe_path = Path(self.recipe)
 		if not recipe_path.exists():
 			raise Error("Recipe does not exist: " + self.recipe)
