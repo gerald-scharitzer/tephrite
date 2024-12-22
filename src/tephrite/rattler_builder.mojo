@@ -19,7 +19,7 @@ struct RattlerBuilder(Builder):
 	var recipe: String
 	var output: String
 
-	fn __init__(inout self, recipe: String = DEFAULT_RECIPE, output: String = DEFAULT_OUTPUT_DIR):
+	fn __init__(out self, recipe: String = DEFAULT_RECIPE, output: String = DEFAULT_OUTPUT_DIR):
 		self.recipe = recipe
 		self.output = output
 	

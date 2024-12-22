@@ -12,7 +12,7 @@ struct Recipe2:
 
 	var path: String
 
-	fn __init__(inout self, path: String = "recipe.yaml"):
+	fn __init__(out self, path: String = "recipe.yaml"):
 		self.path = path
 	
 	fn meta(self) raises -> Meta:

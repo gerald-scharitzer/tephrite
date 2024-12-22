@@ -1,5 +1,7 @@
 """Command line interface"""
 
+from utils import StringRef
+
 from tephrite import VERSION
 from .conda_builder import CondaBuilder
 from .publisher import Publisher

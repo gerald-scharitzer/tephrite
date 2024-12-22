@@ -16,7 +16,7 @@ struct CondaBuilder:
 
 	var output: String
 
-	fn __init__(inout self, output: String = DEFAULT_OUTPUT_DIR):
+	fn __init__(out self, output: String = DEFAULT_OUTPUT_DIR):
 		self.output = output
 	
 	fn build(self, recipe: String = DEFAULT_RECIPE_DIR) raises -> Path:

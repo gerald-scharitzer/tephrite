@@ -9,7 +9,7 @@ from .recipe import Recipe
 
 struct Publisher:
 
-	fn __init__(inout self):
+	fn __init__(out self):
 		pass
 	
 	fn publish(self) raises:

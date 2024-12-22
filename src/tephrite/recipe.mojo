@@ -9,7 +9,7 @@ struct Recipe:
 
 	var directory: String
 
-	fn __init__(inout self, directory: String):
+	fn __init__(out self, directory: String):
 		self.directory = directory
 	
 	fn meta(self) raises -> Meta:
